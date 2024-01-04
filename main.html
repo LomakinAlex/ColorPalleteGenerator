@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Scheme Generator</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    .color-box {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Color Scheme Generator</h1>
+  <div id="colorSchemeContainer" style="display: flex;">
+    <div class="color-box" id="one"></div>
+    <div class="color-box" id="two"></div>
+    <div class="color-box" id="three"></div>
+    <div class="color-box" id="four"></div>
+    <div class="color-box" id="five"></div>
+  </div>
+<button onclick="generateColorScheme()">Regenerate</button>
+  <script>
+    function generateColorScheme() {
+      for (let i = 0; i < 5; i++) {
+        obj = i
+        switch (obj){
+          case 0: obj = document.getElementById("one"); break
+          case 1: obj = document.getElementById("two"); break
+          case 2: obj = document.getElementById("three"); break
+          case 3: obj = document.getElementById("four"); break
+          case 4: obj = document.getElementById("five"); break
+        }
+        obj.style.backgroundColor = `hsl(${(Math.round(Math.random() * 360) + i * 30) % 360}, 100%, 50%)`;
+      }
+    }
+  </script>
+</body>
+</html>
